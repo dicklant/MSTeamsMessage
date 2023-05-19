@@ -14,7 +14,7 @@ function getDetailIHM(sessionCode) {
 }
 
 function setupPage(sessionCode) {
-    var mode = 0;
+    var mode = 1;
     var str = "";
 
     switch (mode) {
