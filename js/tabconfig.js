@@ -1,5 +1,3 @@
-//import {microsoftTeams} from "@microsoft/teams-js"
-
 function btnPush() {
     let codeSession = document.getElementById("idSessionCode").value;
 
