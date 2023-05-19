@@ -1,4 +1,4 @@
 function start() {
-    document.getElementById("idDate").textContent = "OK"
+    document.getElementById("idDate").textContent = "OK cool !"
 
 }
