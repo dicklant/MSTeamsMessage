@@ -29,19 +29,17 @@
                 const tabName = document.getElementById("idTabName").value;
                 const sessionCode = document.getElementById("idSessionCode").value;
 
-                const url = "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tab.html?Session=" + sessionCode;
-
                 microsoftTeams.pages.config.setConfig({
                     suggestedDisplayName: tabName,
                     entityId: "testContext",
-                    contentUrl: url ,
+                    contentUrl: "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tab.html?Session=" + sessionCode ,
                     websiteUrl: "https://salmon-coast-0d80f3e10.3.azurestaticapps.net"
                 }).then(() => {
                     saveEvent.notifySuccess();
                 });
             });
 
-            microsoftTeams.pages.config.setValidityState(tabName.length>0);
+            microsoftTeams.pages.config.setValidityState(true);
         });
     }
 
