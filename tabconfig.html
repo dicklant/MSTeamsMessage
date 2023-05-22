@@ -10,27 +10,26 @@
 </head>
 
 <body>
-    <h1>Configuration Yellow</h1>
+    <h1>TAB Yellow</h1>
     <p>Nom de l'onglet :</p>
-    <input type="text" id="idTabName" oninput="onTabNameChange()" placeholder="obligatoire"></input>
+    <input type="text" id="idTabName" placeholder="obligatoire" oninput="onTabNameChange()"></input>
     <p>Code de réunion :</p>
-    <input type="text" id="idSessionCode"></input>
+    <input type="text" id="idSessionCode" placeholder="obligatoire" minlength="6" maxlength="6" oninput="onTabNameChange()"></input>
 </body>
 
 <script>
 
     function InitMSTeam() {
-
         microsoftTeams.app.initialize().then(() => {
             microsoftTeams.pages.config.registerOnSaveHandler((saveEvent) => {
 
                 const tabName = document.getElementById("idTabName").value;
-                const sessionCode = document.getElementById("idSessionCode").value;
+                const sessionCode = document.getElementById("idSessionCode").value.toUpperCase();
 
                 microsoftTeams.pages.config.setConfig({
                     suggestedDisplayName: tabName,
                     entityId: "testContext",
-                    contentUrl: "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tab.html?Session=" + sessionCode ,
+                    contentUrl: "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tab.html?Session=" + sessionCode,
                     websiteUrl: "https://salmon-coast-0d80f3e10.3.azurestaticapps.net"
                 }).then(() => {
                     saveEvent.notifySuccess();
@@ -42,7 +41,7 @@
     }
 
     function onTabNameChange() {
-        let save = document.getElementById("idTabName").value.length>0;
+        let save = document.getElementById("idTabName").value.length>0 && document.getElementById("idSessionCode").value.length ==6;
         microsoftTeams.pages.config.setValidityState(save);
     }
 

@@ -9,9 +9,9 @@
 <body>
     <h1>Configuration Yellow</h1>
     <p>Titre onglet :</p>
-    <input type="text" id="idTabName" required oninput="onTabNameChange()" placeholder="Veuillez entrer un nom de TAB"></input>
+    <input type="text" id="idTabName" oninput="onTabNameChange()" placeholder="obligatoire"></input>
     <p>Code de réunion :</p>
-    <input type="text" id="idSessionCode"></input>
+    <input type="text" id="idSessionCode" placeholder="obligatoire" minlength="6" maxlength="6"></input>
 </body>
 <script>
     function onTabNameChange() {
