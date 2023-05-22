@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <h1>Configuration MS Yellow</h1>
+    <h1>Configuration Yellow</h1>
     <p>Titre onglet :</p>
-    <input type="text" id="idTabName"></input>
+    <input type="text" id="idTabName" onchange="onTabNameChange()"></input>
     <p>Code de réunion :</p>
     <input type="text" id="idSessionCode"></input>
     <button onclick="btnPush()">Push</button>
@@ -42,8 +42,9 @@
         });
     }
 
-    function btnPush() {
-        microsoftTeams.pages.config.setValidityState(true);
+    function onTabNameChange() {
+        let save = document.getElementById("idTabName").textContent.length>0;
+        microsoftTeams.pages.config.setValidityState(save);
     }
 
     InitMSTeam()
