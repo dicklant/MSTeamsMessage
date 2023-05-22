@@ -53,18 +53,16 @@
     }
 
     function getMSTeamsContext() {
-        let ctx = ""
         microsoftTeams.app.getContext().then((context) => {
-            ctx = context['frameContext'];
+            let ctx = context['frameContext'];
+            alert("Context = " + ctx)
+            initPage(ctx)
         });
-        return ctx;
     }
 
 
-    let ctx = getMSTeamsContext()
-    alert("Context = "+ctx)
+    getMSTeamsContext()
 
-    initPage(ctx)
 </script>
 
 </html>
