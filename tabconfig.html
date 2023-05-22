@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/tabconfig.js"> </script>
     <script src="./js/MicrosoftTeams.min.js"> </script>
 </head>
 
 <body>
-    <h1>Configuration Yellow</h1>
+    <h1>Configuration MS Yellow</h1>
     <p>Titre onglet :</p>
     <input type="text" id="idTabName"></input>
     <p>Code de réunion :</p>
@@ -39,8 +38,12 @@
                 });
             });
 
-            microsoftTeams.pages.config.setValidityState(true);
+            microsoftTeams.pages.config.setValidityState(false);
         });
+    }
+
+    function btnPush() {
+        microsoftTeams.pages.config.setValidityState(true);
     }
 
     InitMSTeam()

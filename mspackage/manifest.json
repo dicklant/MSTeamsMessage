@@ -1,0 +1,68 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.14",
+    "version": "1.0.14",
+    "id": "0cdcccbb-5081-418e-86bd-75621886dad9",
+    "packageName": "com.microsoft.teams.extension",
+    "developer": {
+        "name": "Sensorit SAS",
+        "websiteUrl": "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/",
+        "privacyUrl": "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/Help/legal.html",
+        "termsOfUseUrl": "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/Help/legal.html"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "TestContext",
+        "full": "L&#x27;application Yellow pour une expérience intégrée de Yellow dans MS Teams"
+    },
+    "description": {
+        "short": "Un tableau blanc collaboratif",
+        "full": "Un tableau blanc pour collaborer de manière visuelle où que vous soyez et illuminer vos réunions, workshops et présentations."
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [],
+    "composeExtensions": [],
+    "configurableTabs": [
+        {
+            "configurationUrl": "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tabconfig.html",
+            "canUpdateConfiguration": false,
+            "scopes": [
+                "team",
+                "groupchat"
+            ],
+            "context": [
+                "meetingChatTab",
+                "meetingDetailsTab",
+                "meetingStage",
+                "channelTab"
+            ],
+            "meetingSurfaces": [
+            "sidePanel",
+            "stage"
+            ]
+        }
+    ],
+    "permissions": [
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "salmon-coast-0d80f3e10.3.azurestaticapps.net"
+    ],
+    "authorization": {
+        "permissions": {
+            "resourceSpecific": [
+                {
+                    "name": "MeetingStage.Write.Chat",
+                    "type": "Delegated"
+                },
+                {
+                    "name": "ChannelMeetingStage.Write.Group",
+                    "type": "Delegated"
+                }
+            ]
+        }
+    }
+}
