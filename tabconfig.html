@@ -23,16 +23,13 @@
 
     function InitMSTeam() {
 
-        const url = "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tab.html?Session=" + document.getElementById("idSessionCode").value;
-        console.log("URL: " + url);
-
         microsoftTeams.app.initialize().then(() => {
             microsoftTeams.pages.config.registerOnSaveHandler((saveEvent) => {
 
                 const tabName = document.getElementById("idTabName").value;
                 const sessionCode = document.getElementById("idSessionCode").value;
 
-
+                const url = "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tab.html?Session=" + sessionCode;
 
                 microsoftTeams.pages.config.setConfig({
                     suggestedDisplayName: tabName,
@@ -44,7 +41,7 @@
                 });
             });
 
-            microsoftTeams.pages.config.setValidityState(true);
+            microsoftTeams.pages.config.setValidityState(tabName.length>0);
         });
     }
 
