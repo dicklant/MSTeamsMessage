@@ -28,10 +28,13 @@
                 const tabName = document.getElementById("idTabName").value;
                 const sessionCode = document.getElementById("idSessionCode").value;
 
+                const url = "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tab.html?Session=" + codeSession;
+                console.log("URL: "+url);
+
                 microsoftTeams.pages.config.setConfig({
                     suggestedDisplayName: tabName,
                     entityId: "testContext",
-                    contentUrl: "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tab.html?Session=" + codeSession,
+                    contentUrl: url ,
                     websiteUrl: "https://salmon-coast-0d80f3e10.3.azurestaticapps.net"
                 }).then(() => {
                     saveEvent.notifySuccess();
