@@ -1,68 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- script src="./js/tab.js"> </script -->
-    <script src="./js/MicrosoftTeams.min.js"> </script>
 </head>
-
-<body id="main">
-    <h1>Yellow MS Team</h1>
+<body>
+    <h1>Test Context MS Teams</h1>
+    <p>Context</p>
+    <label id="idLabel"></label>
 </body>
 <script>
-    function getMeetingIHM(sessionCode) {
-        //return '<div><h1>Meeting Page</h1><input id="idChamp" value = "' + sessionCode + '"></input><\div>';
-
-        window.location.href = "https://yellowintegration.azurewebsites.net/whiteboard/" + sessionCode + "/Guest";
-        return '<div><h1>Chargement...</h1></div>';
-    }
-
-    function getSideIHM(sessionCode) {
-        return '<div><h1>Side Page</h1><input id="idChamp" value = "' + sessionCode + '"></input></div>';
-    }
-
-    function getDetailIHM(sessionCode) {
-        return '<div><h1>Meeting Detail</h1><input id="idChamp" value = "' + sessionCode + '"></input></div>';
-    }
-
-    function setupPage(sessionCode, ctx) {
-        var str = "";
-        switch (ctx) {
-            case "tab": str = getMeetingIHM(sessionCode); break;
-            case "content": str = getDetailIHM(sessionCode);; break;
-            case "sidePanel": str = getSideIHM(sessionCode); break;
-            case "meetingStage": str = getMeetingIHM(sessionCode); break;
-            default: str = "<h1>Accès direct non autorisé...</h1>";
-        }
-
-        document.getElementById("main").innerHTML = str;
-    }
-
-    function initPage(ctx) {
-        // récupération du code de Session en paramètre
-        var parameters = location.search.substring(1).split("&");
-        var parameter = parameters[0].split("=");
-        var sessionParam = parameter[0];
-        var sessionCode = decodeURI(parameter[1]);
-
-        setupPage(sessionCode, ctx);
-    }
-
-    function getMSTeamsContext() {
-        microsoftTeams.app.getContext().then((context) => {
-            let ctx = context['frameContext'];
-            alert("Context = " + ctx)
-            initPage(ctx)
-        });
-    }
-
-
-    getMSTeamsContext()
-
+    document.getElementById("idLabel").textContent = "Hello"
 </script>
-
 </html>
