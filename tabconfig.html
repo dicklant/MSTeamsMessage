@@ -23,7 +23,7 @@
 
     function InitMSTeam() {
 
-        const url = "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tab.html?Session=" + codeSession;
+        const url = "https://salmon-coast-0d80f3e10.3.azurestaticapps.net/tab.html?Session=" + document.getElementById("idSessionCode").value;
         console.log("URL: " + url);
 
         microsoftTeams.app.initialize().then(() => {
