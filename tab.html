@@ -15,10 +15,18 @@
 <script>
     document.getElementById("idLabel").textContent = "Hello";
 
-    microsoftTeams.app.initialize().then(() => {
+/*     microsoftTeams.app.initialize().then(() => {
         microsoftTeams.app.getContext().then((context) => {
             document.getElementById("idLabel").textContent = context['frameContext'];
         });
+    }); */
+
+
+    microsoftTeams.initialize();
+    
+    // Get the user context from Teams and set it in the state
+    microsoftTeams.getContext((context, error) => {
+        document.getElementById("idLabel").textContent = context['frameContext'];
     });
 
 </script>
