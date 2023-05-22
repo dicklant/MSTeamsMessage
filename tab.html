@@ -14,8 +14,11 @@
 <script>
     document.getElementById("idLabel").textContent = "Hello";
 
-    microsoftTeams.app.getContext().then((context) => {
-        document.getElementById("idLabel").textContent = context['frameContext'];
+    microsoftTeams.app.initialize().then(() => {
+        microsoftTeams.app.getContext().then((context) => {
+            document.getElementById("idLabel").textContent = context['frameContext'];
+        });
     });
+    
 </script>
 </html>
