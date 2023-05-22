@@ -36,7 +36,7 @@
             case "content": str = getDetailIHM(sessionCode);; break;
             case "sidePanel": str = getSideIHM(sessionCode); break;
             case "meetingStage": str = getMeetingIHM(sessionCode); break;
-            default: str = <h1>"Accès direct non autorisé..."</h1>;
+            default: str = "<h1>Accès direct non autorisé...</h1>";
         }
 
         document.getElementById("main").innerHTML = str;
