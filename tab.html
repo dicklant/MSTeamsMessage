@@ -56,15 +56,15 @@
 
         microsoftTeams.initialize();
 
-        let user = microsoftTeams.user;
         let userDisplayName = ""
 
-        if(user === undefined) userDisplayName ="??"
-        else userDisplayName = user.displayName
-
-
-        // Get the user context from Teams and set it in the state
+            // Get the user context from Teams and set it in the state
         microsoftTeams.getContext((context, error) => {
+            let user = context.user;
+
+            if (user === undefined) userDisplayName = "????"
+            else userDisplayName = user.userPrincipalName
+
             let ctx = context['frameContext'];
             initPage(ctx, userDisplayName)
         });
