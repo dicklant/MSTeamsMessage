@@ -60,7 +60,7 @@
         microsoftTeams.getContext((context, error) => {
             let userDisplayName = "None"
             context.forEach(element => {
-               userDisplayName = userDisplayName+'/#/'+ element.constructor.name 
+               userDisplayName = userDisplayName+'/#/'+ typeof(element)
             });
             alert(userDisplayName)
 
