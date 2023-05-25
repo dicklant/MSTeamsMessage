@@ -59,7 +59,7 @@
         // Get the user context from Teams and set it in the state
         microsoftTeams.getContext((context, error) => {
             let userDisplayName = "None"
-            alert(context['frameContext'])
+            alert(context['userPrincipalName'])
 
             //if (user === undefined) userDisplayName = "???"
             //else userDisplayName = user
