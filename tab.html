@@ -19,7 +19,7 @@
         return '<div><h1>Chargement...</h1></div>';
     }
 
-    function getSideIHM(sessionCode, ctx, userDisplayName, theme) {
+    function getSideIHM(sessionCode, userDisplayName, theme) {
         return
             '<div>'+
                 '<h1>Side Page</h1>'
@@ -40,8 +40,8 @@
         
         switch (ctx) {
             //case "tab": str = getMeetingIHM(sessionCode); break;
-            case "content": str = getDetailIHM(sessionCode);; break;
-            case "sidePanel": str = getSideIHM(sessionCode, ctx, userDisplayName, theme); break;
+            case "content": str = getDetailIHM(sessionCode); break;
+            case "sidePanel": str = getSideIHM(sessionCode, userDisplayName, theme); break;
             case "meetingStage": str = getMeetingIHM(sessionCode); break;
             default: str = "<h1>Accès direct non autorisé...</h1>";
         }
