@@ -20,7 +20,7 @@
     }
 
     function getSideIHM(sessionCode, userDisplayName, theme) {
-        return '<div><h1>'+ userDisplayName +'</h1></div>'
+        return '<div><h1>'+ theme +'</h1></div>'
         //return
         //    '<div>'+
         //        '<h1>Side Page</h1>'+
@@ -68,9 +68,9 @@
         microsoftTeams.getContext((context, error) => {
             let ctx = context['frameContext'];
             let userDisplayName = context['userPrincipalName']
-            //let theme = context['theme']
+            let theme = context['theme']
 
-            initPage(ctx, userDisplayName, "theme")
+            initPage(ctx, userDisplayName, theme)
         });
     }
 
