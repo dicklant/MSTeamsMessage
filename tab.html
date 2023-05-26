@@ -66,10 +66,10 @@
         // Get the user context from Teams and set it in the state
         microsoftTeams.getContext((context, error) => {
             let ctx = context['frameContext'];
-            let userDisplayName = context['userPrincipalName']
-            let theme = context['theme']
+            //let userDisplayName = context['userPrincipalName']
+            //let theme = context['theme']
 
-            initPage(ctx, userDisplayName, theme)
+            initPage(ctx, "userDisplayName", "theme")
         });
     }
 
