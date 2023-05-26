@@ -20,14 +20,14 @@
     }
 
     function getSideIHM(sessionCode, userDisplayName, theme) {
-        return '<div><h1>'+ theme +'</h1></div>'
-        //return
-        //    '<div>'+
-        //        '<h1>Side Page</h1>'+
-        //        '<div><label>Session Id: </label><label id="idChamp">'+sessionCode+'</label></div>'+
-        //        '<div><label>DisplayName: </label><label id="idUser">'+userDisplayName+'</label></div>'+
-        //        '<div><label>Theme: </label><label id="idTheme">'+theme+'</label></div>'+
-        //    '</div>';
+        //return '<div><h1>'+ theme +'</h1></div>'
+        return
+            '<div>'+
+                '<h1>Side Page</h1>'+
+                '<div><label>Session Id: </label><label id="idChamp">'+sessionCode+'</label></div>'+
+                '<div><label>DisplayName: </label><label id="idUser">'+userDisplayName+'</label></div>'+
+                '<div><label>Theme: </label><label id="idTheme">'+theme+'</label></div>'+
+            '</div>';
     }
 
     function getDetailIHM(sessionCode) {
