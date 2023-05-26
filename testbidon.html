@@ -7,11 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-        <div>
-            <h1>Side Page</h1>
-            <div><label>Session Id: </label><label id="idChamp">sessionId</label></div>
-            <div><label>DisplayName: </label><label id="idUser" >userDisplayName</label></div>
-            <div><label>Theme: </label><label id="idTheme">theme</label></div>
+        <div id="main">
         </div>
 </body>
+<script>
+
+    function GetHTML(sessionCode, userDisplayName) {
+        return  '<div>'+
+                '<h1>Side Page</h1>' +
+                '<div><label>Session Id: </label><label id="idChamp">' + sessionCode + '</label></div>' +
+                '<div><label>DisplayName: </label><label id="idUser" >' + userDisplayName + '</label></div>' +
+                '<div><label>Theme: </label><label id="idTheme">theme</label></div>'+
+                '</div>';
+
+    }
+
+    document.getElementById("main").innerHTML = GetHTML("ma session", "IOOOP")
+ 
+</script>
 </html>
