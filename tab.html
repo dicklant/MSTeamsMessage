@@ -20,8 +20,7 @@
     }
 
     function getSideIHM(sessionCode, context) {
-        let userDisplayName = context['userPrincipalName']
-        let theme = context['theme']
+
 
         return
             '<div>'+
@@ -38,10 +37,8 @@
         return '<div><h1>Chargement...</h1></div>';
     }
 
-    function setupPage(sessionCode, context) {
+    function setupPage(sessionCode, ctx, userDisplayName, theme) {
         var str = "";
-
-        let ctx = context['frameContext'];
         
         switch (ctx) {
             //case "tab": str = getMeetingIHM(sessionCode); break;
@@ -54,14 +51,14 @@
         document.getElementById("main").innerHTML = str;
     }
 
-    function initPage(context) {
+    function initPage(ctx, userDisplayName, theme) {
         // récupération du code de Session en paramètre
         var parameters = location.search.substring(1).split("&");
         var parameter = parameters[0].split("=");
         var sessionParam = parameter[0];
         var sessionCode = decodeURI(parameter[1]);
 
-        setupPage(sessionCode, context);
+        setupPage(sessionCode, ctx, userDisplayName, theme);
     }
 
     function getMSTeamsContext() {
@@ -70,7 +67,11 @@
 
         // Get the user context from Teams and set it in the state
         microsoftTeams.getContext((context, error) => {
-            initPage(context)
+            let ctx = context['frameContext'];
+            let userDisplayName = context['userPrincipalName']
+            let theme = context['theme']
+
+            initPage(ctx, userDisplayName, theme)
         });
     }
 
