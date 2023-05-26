@@ -19,8 +19,17 @@
         return '<div><h1>Chargement...</h1></div>';
     }
 
-    function getSideIHM(sessionCode, userDisplayName) {
-        return '<div><h1>Side Page</h1><input id="idChamp" value = "' + sessionCode + '"></input><input id="idUser" value = "' + userDisplayName + '"></input></div>';
+    function getSideIHM(sessionCode, context) {
+        let userDisplayName = context['userPrincipalName']
+        let theme = context['theme']
+
+        return
+            '<div>'+
+                '<h1>Side Page</h1>'
+                '<div><label>Session Id: </label><label id="idChamp">'+sessionId+'</label></div>'+
+                '<div><label>DisplayName: </label><label id="idUser">'+userDisplayName+'</label></div>'+
+                '<div><label>Theme: </label><label id="idTheme">'+theme+'</label></div>'+
+            '</div>';
     }
 
     function getDetailIHM(sessionCode) {
@@ -29,12 +38,15 @@
         return '<div><h1>Chargement...</h1></div>';
     }
 
-    function setupPage(sessionCode, ctx, userDisplayName) {
+    function setupPage(sessionCode, context) {
         var str = "";
+
+        let ctx = context['frameContext'];
+        
         switch (ctx) {
             //case "tab": str = getMeetingIHM(sessionCode); break;
             case "content": str = getDetailIHM(sessionCode);; break;
-            case "sidePanel": str = getSideIHM(sessionCode, userDisplayName); break;
+            case "sidePanel": str = getSideIHM(sessionCode, context); break;
             case "meetingStage": str = getMeetingIHM(sessionCode); break;
             default: str = "<h1>Accès direct non autorisé...</h1>";
         }
@@ -42,14 +54,14 @@
         document.getElementById("main").innerHTML = str;
     }
 
-    function initPage(ctx, userDisplayName) {
+    function initPage(context) {
         // récupération du code de Session en paramètre
         var parameters = location.search.substring(1).split("&");
         var parameter = parameters[0].split("=");
         var sessionParam = parameter[0];
         var sessionCode = decodeURI(parameter[1]);
 
-        setupPage(sessionCode, ctx, userDisplayName);
+        setupPage(sessionCode, context);
     }
 
     function getMSTeamsContext() {
@@ -58,9 +70,7 @@
 
         // Get the user context from Teams and set it in the state
         microsoftTeams.getContext((context, error) => {
-            let userDisplayName = context['userPrincipalName']
-            let ctx = context['frameContext'];
-            initPage(ctx, userDisplayName)
+            initPage(context)
         });
     }
 
