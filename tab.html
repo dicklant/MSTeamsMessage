@@ -30,10 +30,12 @@
             '</div>';
     }
 
-    function getDetailIHM(sessionCode) {
+    function getDetailIHM(sessionCode, channel) {
         //return '<div><h1>Meeting Detail</h1><input id="idChamp" value = "' + sessionCode + '"></input></div>';
         //window.location.href = "https://yellowintegration.azurewebsites.net"
-        return "<div><h1>Il faut qu'on mette un texte ici...</h1></div>";
+        return '<div>'+
+                    '<div><label>Channel: </label><label id="idChannel">'+channel+'</label></div>'+  
+                '</div>';
     }
 
     function setupPage(sessionCode, ctx, userDisplayName, theme, channel) {
@@ -41,7 +43,7 @@
         
         switch (ctx) {
             //case "tab": str = getMeetingIHM(sessionCode); break;
-            case "content": str = getDetailIHM(sessionCode); break;
+            case "content": str = getDetailIHM(sessionCode, channel); break;
             case "sidePanel": str = getSideIHM(sessionCode, userDisplayName, theme, channel); break;
             case "meetingStage": str = getMeetingIHM(sessionCode); break;
             default: str = "<h1>Accès direct non autorisé...</h1>";
