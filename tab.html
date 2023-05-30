@@ -33,9 +33,8 @@
     function getDetailIHM(sessionCode, channel) {
         //return '<div><h1>Meeting Detail</h1><input id="idChamp" value = "' + sessionCode + '"></input></div>';
         //window.location.href = "https://yellowintegration.azurewebsites.net"
-        return '<div>'+
-                    '<div><label>Channel: </label><label id="idChannel">'+channel+'</label></div>'+  
-                '</div>';
+        window.location.href = "https://yellowintegration.azurewebsites.net/whiteboard/" + sessionCode + "/Guest";
+        return '<div><h1>Chargement...</h1></div>';
     }
 
     function setupPage(sessionCode, ctx, userDisplayName, theme, channel) {
@@ -71,7 +70,7 @@
             let ctx = context['frameContext'];
             let userDisplayName = context['userPrincipalName']
             let theme = context['theme']
-            let channel = context['channel.displayname']
+            let channel = context['channel']['displayname']
 
             initPage(ctx, userDisplayName, theme, channel)
         });
